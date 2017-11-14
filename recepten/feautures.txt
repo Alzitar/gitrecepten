@@ -1,0 +1,21 @@
+
+
+
+* Registratie.
+* login/logout.
+* Bcrypt password hash
+* Alleen members kunnen toevoegen.
+* Frontend checks : required regex patronen voor invoer velden.
+* Autocomplete gebaseerd op database items.
+* Backend checks voor invoer.
+* PDO connectie voor gebruik met meerdere databases.
+* prepared PDO SQL statements.
+* georganiseerde site structuur met connnection/json/en functies.
+* Database met unique en foreign constraints.
+* Database gevens ophalen met joins.
+* Basic css styling.
+* Jquery dynamic input velden toevoegen.
+* Jquery check bij form submit.
+* Comments voor duidelijkheid.
+* Dynamisch invoeren of gebruiken van nieuwe input ingredienten/keukengerei terwijl je een recept maakt.
+* Uniform bericht function.
