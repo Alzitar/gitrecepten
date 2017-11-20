@@ -35,5 +35,5 @@ if (isset($_GET['page'])) {
 			echo "No such page";
 	endswitch;
 } else {
-	header("Location: https://website.nl/recepten/?page=index");
+	header("Location: ?page=index");
 }

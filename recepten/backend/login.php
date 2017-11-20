@@ -10,18 +10,6 @@ if (isset($_POST['submit'])) {
 	$email = $_POST['email'];
 	$wachtwoord = $_POST['wachtwoord'];
 
-	// Dit is niet veilig genoeg maar even ter demonstratie:
-//	$wachtwoord = md5($wachtwoord);
-
-
-
-	//  Zo kan je ook een prepared statement uitvoeren maar het is iets minder mooi:
-	//	$query = $conn->prepare("SELECT email FROM gebruikers WHERE email = :email AND wachtwoord = :wachtwoord");
-	//	$query->bindParam(':email', $email);
-	//	$query->bindParam(':wachtwoord', $wachtwoord);
-	//	$query->execute();
-
-
 	$query = $conn->prepare("SELECT wachtwoord FROM gebruikers WHERE email = :email");
 	$query->execute(array(
 		':email' => $email,
@@ -30,7 +18,7 @@ if (isset($_POST['submit'])) {
 	$goedWachtwoord = password_verify($wachtwoord, $databaseWachtwoord);
 
 	if (!$goedWachtwoord) {
-				header("Location: https://website.nl/recepten/?page=login&bericht=combinatieww");
+				header("Location: ?page=login&bericht=combinatieww");
 		exit();
 	} else {
 		$query = $conn->prepare("SELECT email FROM gebruikers WHERE email = :email AND rechten = :rechten ");
@@ -39,7 +27,7 @@ if (isset($_POST['submit'])) {
 			'rechten' => 1
 		));
 		if ($query->rowCount() == 0) {
-			header("Location: https://website.nl/recepten/?page=login&bericht=geenrechten");
+			header("Location: ?page=login&bericht=geenrechten");
 			exit();
 		} else {
 			session_start();

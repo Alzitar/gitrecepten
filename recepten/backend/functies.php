@@ -69,7 +69,7 @@ function sessionCheck()
 {
 	session_start();
 	if (!isset($_SESSION['rechten'])) {
-		header('Location: https://website.nl/recepten/?page=login');
+		header('Location: ?page=login');
 		exit();
 	}
 }
@@ -79,7 +79,7 @@ function sessionCheckLogin()
 {
 	session_start();
 	if (isset($_SESSION['rechten'])) {
-		header('Location: https://website.nl/recepten/?page=index&bericht=ingelogd');
+		header('Location: ?page=index&bericht=ingelogd');
 		exit();
 	}
 }

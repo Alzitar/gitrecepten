@@ -28,22 +28,22 @@ sessionCheck();
 // controleren of alles is ingevuld
 switch (!empty($var)) {
 	case $receptNaamTest:
-		header('Location: https://website.nl/recepten/?page=receptmaken&&bericht=geenReceptNaam');
+		header('Location: ?page=receptmaken&&bericht=geenReceptNaam');
 		exit();
 	case $receptOmschrijving:
-		header('Location: https://website.nl/recepten/?page=receptmaken&bericht=geenReceptOmschrijving');
+		header('Location: ?page=receptmaken&bericht=geenReceptOmschrijving');
 		exit();
 	case $receptInstructies:
-		header('Location: https://website.nl/recepten/?page=receptmaken&bericht=geenReceptInstructies');
+		header('Location: ?page=receptmaken&bericht=geenReceptInstructies');
 		exit();
 	case $ingredientenPostArray:
-		header('Location: https://website.nl/recepten/?page=receptmaken&bericht=geenIngredienten');
+		header('Location: ?page=receptmaken&bericht=geenIngredienten');
 		exit();
 	case $hoeveelheidPostArray:
-		header('Location: https://website.nl/recepten/?page=receptmaken&bericht=geenIngredienten');
+		header('Location: ?page=receptmaken&bericht=geenIngredienten');
 		exit();
 	case $maatPostArray :
-		header('Location: https://website.nl/recepten/?page=receptmaken&bericht=geenIngredienten');
+		header('Location: ?page=receptmaken&bericht=geenIngredienten');
 		exit();
 	// keukengerei mag leeg zijn!
 }
@@ -51,7 +51,7 @@ switch (!empty($var)) {
 
 // Twee keer zelfde ingredient ingevoerd?
 if (count($ingredientenPostArray) !== count(array_unique($ingredientenPostArray))) {
-	header('Location: https://website.nl/recepten/?page=receptmaken&bericht=zelfdeIngredient');
+	header('Location: ?page=receptmaken&bericht=zelfdeIngredient');
 	exit();
 }
 
@@ -67,7 +67,7 @@ $query->execute(array(
 ));
 
 if ($query->rowCount() != 0) {
-	header('Location: https://website.nl/recepten/?page=receptmaken&bericht=bestaat');
+	header('Location: ?page=receptmaken&bericht=bestaat');
 	exit();
 } else {
 	$receptNaamGoed = $receptNaamTest;
@@ -231,7 +231,7 @@ foreach ($keukengereiPostArray as $keukengerei) {
 }
 
 
-header('Location: https://website.nl/recepten/?page=receptmaken&bericht=receptGemaakt')
+header('Location: ?page=receptmaken&bericht=receptGemaakt')
 
 ?>
 </pre>
